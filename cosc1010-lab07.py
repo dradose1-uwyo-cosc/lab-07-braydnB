@@ -1,8 +1,8 @@
-# Your Name Here
+# Braydn Ballard
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# October 28, 2024
+# Lab 07
+# Lab Section: 14
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -16,8 +16,17 @@
     # To do so you can use the methods `.isdigit()` or `.isnumeric()`
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
-
 factorial = 1
+while True:
+    upperBound = input("Upper Bound: ")
+    if upperBound.isdigit() == True:
+        for  value in range(1, int(upperBound)+1):
+            factorial *= value
+        print(factorial)
+        break
+    else:
+        print("This is not an integer.")
+
 
 print(f"The result of the factorial based on the given bound is {factorial}")
 
@@ -37,11 +46,26 @@ print("*"*75)
 # All this together means you will have an intensive while loop that includes multiple if statements, likely with some nesting 
 # The sum should start at 0 
 
-num_sum = 0 
-
+num_sum = 0
+while True:
+    numin = input("Adding: ")
+    if numin.isdigit() == True:
+        num_sum += int(numin)
+    elif "-" in numin:
+        negfix = numin.removeprefix("-")
+        if negfix.isdigit() == False:
+            print("input was not a number!")
+        elif negfix.isdigit() == True:
+            num_sum -= int(negfix)
+    elif numin.lower() == "exit":
+        break
+    else:
+        print("This input is not a number")
+        
 print(f"Your final sum is {num_sum}")
 
 print("*"*75)
+
 # Now you will be creating a two operand calculator
 # It will support the following operators: +,-,/,*,% 
 # So accepted input is of the form `operand operator operand` 
@@ -58,5 +82,27 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+finished = 0
 
-        
+while True:
+    calin = input("What is your two operand calculation?")
+    if " " in calin:
+        calinfix = calin.replace(" ", "")
+    else: 
+        calinfix = calin
+    if "+" in calinfix:
+        finished = int(calinfix[0])+int(calinfix[2])
+        print(finished)
+    elif calinfix.lower() == "exit":
+        break
+    elif "-" in calinfix:
+        finished = int(calinfix[0])-int(calinfix[2])
+        print(finished)
+    elif "/" in calinfix:
+        finished = int(calinfix[0])/int(calinfix[2])
+        print(finished)
+    elif "*" in calinfix:
+        finished = int(calinfix[0])*int(calinfix[2])
+        print(finished)
+    elif "%" in calinfix:
+        finished = int(calinfix[0])%int(calinfix[2])
