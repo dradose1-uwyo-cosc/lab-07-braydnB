@@ -91,18 +91,29 @@ while True:
     else: 
         calinfix = calin
     if "+" in calinfix:
-        finished = int(calinfix[0])+int(calinfix[2])
+        varplus = calinfix.replace("+", " + ")
+        varplus = varplus.split()
+        finished = int(varplus[0])+int(varplus[2])
         print(finished)
     elif calinfix.lower() == "exit":
         break
     elif "-" in calinfix:
-        finished = int(calinfix[0])-int(calinfix[2])
+        varminus = calinfix.replace("-", " - ")
+        varminus = varminus.split()
+        finished = int(varminus[0])-int(varminus[2])
         print(finished)
     elif "/" in calinfix:
-        finished = int(calinfix[0])/int(calinfix[2])
+        vardiv = calinfix.replace("/", " / ")
+        vardiv = vardiv.split()
+        finished = int(vardiv[0])/int(vardiv[2])
         print(finished)
     elif "*" in calinfix:
-        finished = int(calinfix[0])*int(calinfix[2])
+        varmul = calinfix.replace("*", " * ")
+        varmul = varmul.split()
+        finished = int(varmul[0])*int(varmul[2])
         print(finished)
     elif "%" in calinfix:
-        finished = int(calinfix[0])%int(calinfix[2])
+        varmod = calinfix.replace("%", " % ")
+        varmod = varmod.split()
+        finished = int(varmod[0])%int(varmod[2])
+        print(finished)
